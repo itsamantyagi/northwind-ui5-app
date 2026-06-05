@@ -1,0 +1,14 @@
+<mvc:View controllerName="appat.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <App id="app">
+       <pages>
+        <Page id="PageID" title="Demo App">
+            <content>
+            <mvc:XMLView id="ViewId" viewName="appat.view.Main"/>
+            </content>
+        </Page>
+    </pages>
+    </App>
+</mvc:View>

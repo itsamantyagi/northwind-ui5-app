@@ -1,0 +1,65 @@
+<mvc:View controllerName="appat.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+    <Page id="page" title="{i18n>title}">
+    <Panel id="PanelId" 
+      headerText="Header Panel"
+      class="sapUiResponsiveMargin"
+      width="auto">
+      <content>
+       <Button id="ButtonId" text="Read" press="onPress"/> 
+
+       
+        <form:SimpleForm id="productForm" title="Product Details" editable="true">
+            <Label id="_IDGenLabel" text="Quantity"/>
+            <Input id="_IDGenInput" value="{selected>/Quantity}" />
+
+            <Label id="_IDGenLabel1" text="Name"/>
+            <Input id="_IDGenInput1" value="{selected>/ProductName}" />
+
+            <Label id="_IDGenLabel2" text="Price"/>
+            <Input id="_IDGenInput2" value="{selected>/ExtendedPrice}" />
+        </form:SimpleForm>
+
+      </content>
+  </Panel>
+      <Panel id="PanelId1" 
+      headerText="Product Panel"
+      class="sapUiResponsiveMargin"
+      width="auto" >
+     <content>
+      <List id="ListId"
+      headerText="Products"
+      class="sapUiResponsiveMargin"
+      width="auto"
+		items="{
+             path : 'invoice>/Invoices',  
+              sorter:  { path: 'ShipperName',group: true } }"
+      mode="SingleSelectMaster">
+     <headerToolbar>
+         <Toolbar id="_IDGenToolbar">
+            <Title id="_IDGenTitle" text="Invoices"/>
+            <ToolbarSpacer id="_IDGenToolbarSpacer"/>
+            <SearchField id="_IDGenSearchField" width="50%" search=".onFilterInvoices"/>
+         </Toolbar>
+      </headerToolbar>
+		<items>
+			<ObjectListItem id="_IDGenObjectListItem"
+				title="{ProductName}"
+                number="{
+                type: 'Currency',  
+                formatOptions: {
+                  showMeasure: false
+               }}"
+               numberUnit="{view>/currency}"
+               numberState="{= ${ExtendedPrice} > 50 ? 'Error' : 'Success' }"
+			/>
+		</items>
+   </List>
+   </content>
+      </Panel>
+    </Page>
+</mvc:View>
+
+
