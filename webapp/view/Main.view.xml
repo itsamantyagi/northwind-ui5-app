@@ -46,14 +46,10 @@
       </headerToolbar>
 		<items>
 			<ObjectListItem id="_IDGenObjectListItem"
-				title="{ProductName}"
-                number="{
-                type: 'Currency',  
-                formatOptions: {
-                  showMeasure: false
-               }}"
-               numberUnit="{view>/currency}"
-               numberState="{= ${ExtendedPrice} > 50 ? 'Error' : 'Success' }"
+				title="{invoice>Quantity} * {invoice>ProductName}"
+                number="{invoice>ExtendedPrice}"
+                numberUnit="{view>/currency}"
+                numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"
 			/>
 		</items>
    </List>

@@ -16,10 +16,6 @@ sap.ui.define([
 
           var oSelectedModel = new JSONModel({});
           this.getView().setModel(oSelectedModel, "selected");
-
-
-
-
         },
     onFilterInvoices(event) {
     // build filter array
@@ -40,7 +36,7 @@ sap.ui.define([
        var oSelectedItem = oList.getSelectedItem();
            if (oSelectedItem) {
         // 3. Get the binding context (data path and model info)
-        var oContext = oSelectedItem.getBindingContext("product");
+        var oContext = oSelectedItem.getBindingContext("invoice");
 
         var oData = oContext.getObject();
 

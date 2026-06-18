@@ -18,7 +18,7 @@
    
     	"dataSources": {
 			"invoiceRemote": {
-				"uri": "/northwind/V2/Northwind/Northwind.svc/",
+				"uri": "/Northwind/Northwind.svc",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0"
