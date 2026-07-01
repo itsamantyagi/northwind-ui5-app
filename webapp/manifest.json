@@ -17,8 +17,8 @@
     },
    
     	"dataSources": {
-			"invoiceRemote": {
-				"uri": "/Northwind/Northwind.svc",
+			"empRemote": {
+				"uri": "/sap/opu/odata/sap/ZEMPLOYEE_AMAN_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0"
@@ -63,8 +63,8 @@
         }
       },
 
-      	"invoice": {
-				"dataSource": "invoiceRemote",
+      	"emp": {
+				"dataSource": "empRemote",
         "settings": {
           "defaultBindingMode": "TwoWay"
         }

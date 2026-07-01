@@ -11,45 +11,43 @@
        <Button id="ButtonId" text="Read" press="onPress"/> 
 
        
-        <form:SimpleForm id="productForm" title="Product Details" editable="true">
-            <Label id="_IDGenLabel" text="Quantity"/>
-            <Input id="_IDGenInput" value="{selected>/Quantity}" />
+        <form:SimpleForm id="employeeForm" title="Employees Details" editable="true">
+            <Label id="_IDGenLabel" text="EmployeeId"/>
+            <Input id="_IDGenInput" value="{selected>/EmployeeId}" />
 
-            <Label id="_IDGenLabel1" text="Name"/>
-            <Input id="_IDGenInput1" value="{selected>/ProductName}" />
+            <Label id="_IDGenLabel1" text="EmployeeName"/>
+            <Input id="_IDGenInput1" value="{selected>/Name}" />
 
-            <Label id="_IDGenLabel2" text="Price"/>
-            <Input id="_IDGenInput2" value="{selected>/ExtendedPrice}" />
+            <Label id="_IDGenLabel2" text="Employee Salary"/>
+            <Input id="_IDGenInput2" value="{selected>/Salary}" />
         </form:SimpleForm>
 
       </content>
   </Panel>
       <Panel id="PanelId1" 
-      headerText="Product Panel"
+      headerText="Employees Panel"
       class="sapUiResponsiveMargin"
       width="auto" >
      <content>
       <List id="ListId"
-      headerText="Products"
+      headerText="Employees"
       class="sapUiResponsiveMargin"
       width="auto"
 		items="{
-             path : 'invoice>/Invoices',  
-              sorter:  { path: 'ShipperName',group: true } }"
-      mode="SingleSelectMaster">
+             path : 'emp>/EmployeeSet'}"
+         mode="SingleSelectMaster">
      <headerToolbar>
          <Toolbar id="_IDGenToolbar">
-            <Title id="_IDGenTitle" text="Invoices"/>
+            <Title id="_IDGenTitle" text="Employees"/>
             <ToolbarSpacer id="_IDGenToolbarSpacer"/>
             <SearchField id="_IDGenSearchField" width="50%" search=".onFilterInvoices"/>
          </Toolbar>
       </headerToolbar>
 		<items>
 			<ObjectListItem id="_IDGenObjectListItem"
-				title="{invoice>Quantity} * {invoice>ProductName}"
-                number="{invoice>ExtendedPrice}"
-                numberUnit="{view>/currency}"
-                numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"
+				title="{emp>Name}"
+                number="{emp>Salary}"
+                numberUnit="{emp>Currency}"
 			/>
 		</items>
    </List>

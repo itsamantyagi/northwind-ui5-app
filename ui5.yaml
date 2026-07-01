@@ -16,9 +16,9 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - path: /Northwind
-            url: https://services.odata.org
-            destination: Northwind
+          - path: /sap
+            url: http://ps4:44300
+            destination: ps4
 
 
     - name: fiori-tools-appreload

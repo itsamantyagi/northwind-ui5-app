@@ -16,13 +16,18 @@ sap.ui.define([
 
           var oSelectedModel = new JSONModel({});
           this.getView().setModel(oSelectedModel, "selected");
+
+          var oModel = this.getOwnerComponent().getModel("emp");
+          console.log(oModel);
+
+
         },
     onFilterInvoices(event) {
     // build filter array
       const filter = [];
       const query = event.getParameter("query");
       if (query) {
-        filter.push(new Filter("ProductName", FilterOperator.Contains, query));
+        filter.push(new Filter("Name", FilterOperator.Contains, query));
       }
     // filter binding
       const list = this.byId("ListId");
@@ -36,7 +41,7 @@ sap.ui.define([
        var oSelectedItem = oList.getSelectedItem();
            if (oSelectedItem) {
         // 3. Get the binding context (data path and model info)
-        var oContext = oSelectedItem.getBindingContext("invoice");
+        var oContext = oSelectedItem.getBindingContext("emp");
 
         var oData = oContext.getObject();
 
