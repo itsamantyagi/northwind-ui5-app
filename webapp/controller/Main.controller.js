@@ -34,7 +34,7 @@ sap.ui.define([
       const binding = list?.getBinding("items");
       binding?.filter(filter);
     },
-    onPress() {
+    onRead() {
        
        var oList = this.byId("ListId");
 
@@ -45,9 +45,15 @@ sap.ui.define([
 
         var oData = oContext.getObject();
 
-        this.getView()
-                .getModel("selected")
-                .setData(oData);
+      this.byId("empId").setValue(oData.EmployeeId);
+      this.byId("name").setValue(oData.Name);
+      this.byId("city").setValue(oData.City);
+      this.byId("company").setValue(oData.CompanyName);
+      this.byId("dept").setValue(oData.Dept);
+      this.byId("startdate").setValue(oData.StartDate);
+      this.byId("enddate").setValue(oData.EndDate);
+      this.byId("salary").setValue(oData.Salary);
+      this.byId("currency").setValue(oData.Currency);
            
     } else
        {

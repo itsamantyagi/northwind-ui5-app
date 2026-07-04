@@ -8,18 +8,39 @@
       class="sapUiResponsiveMargin"
       width="auto">
       <content>
-       <Button id="ButtonId" text="Read" press="onPress"/> 
+       <Button id="ButtonReadId"   text="Read"   press="onRead"/> 
+       <Button id="ButtonCreateId" text="Create" press="onCreate"/> 
+       <Button id="ButtonUpdateId" text="Update" press="onUpdate"/> 
+       <Button id="ButtonDeleteId" text="Delete" press="onDelete"/> 
 
        
         <form:SimpleForm id="employeeForm" title="Employees Details" editable="true">
-            <Label id="_IDGenLabel" text="EmployeeId"/>
-            <Input id="_IDGenInput" value="{selected>/EmployeeId}" />
+            <Label id="_IDGenLabel" text="Employee Id"/>
+            <Input id="empId"/>
 
-            <Label id="_IDGenLabel1" text="EmployeeName"/>
-            <Input id="_IDGenInput1" value="{selected>/Name}" />
+            <Label id="_IDGenLabel1" text="Name"/>
+            <Input id="name" />
 
-            <Label id="_IDGenLabel2" text="Employee Salary"/>
-            <Input id="_IDGenInput2" value="{selected>/Salary}" />
+            <Label id="_IDGenLabel2" text="City"/>
+            <Input id="city" />
+
+            <Label id="_IDGenLabel3" text="Company"/>
+            <Input id="company" />
+
+            <Label id="_IDGenLabel4" text="Department"/>
+            <Input id="dept" />
+
+            <Label id="_IDGenLabel5" text="Start Date"/>
+            <Input id="startdate" />
+
+            <Label id="_IDGenLabel6" text="End Date"/>
+            <Input id="enddate" />
+
+            <Label id="_IDGenLabel7" text="Salary"/>
+            <Input id="salary" />
+
+             <Label id="_IDGenLabel8" text="Currency"/>
+            <Input id="currency" />
         </form:SimpleForm>
 
       </content>
