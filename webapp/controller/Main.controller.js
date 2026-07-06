@@ -34,6 +34,80 @@ sap.ui.define([
       const binding = list?.getBinding("items");
       binding?.filter(filter);
     },
+
+    onCreate(){
+           var oModel = this.getView().getModel("emp");
+
+    var oEntry = {
+        EmployeeId: this.byId("empId").getValue(),
+        Name: this.byId("name").getValue(),
+        City: this.byId("city").getValue(),
+        CompanyName: this.byId("company").getValue(),
+        Dept: this.byId("dept").getValue(),
+        StartDate: new Date(this.byId("startdate").getValue()),
+        EndDate: new Date(this.byId("enddate").getValue()),
+        Salary: this.byId("salary").getValue(),
+        Currency: this.byId("currency").getValue()
+        };
+
+        oModel.create("/EmployeeSet", oEntry, {
+        success: function () {
+            sap.m.MessageToast.show("Employee Created");
+            this.byId("ListId").getBinding("items").refresh();
+        }.bind(this),
+        error: function () {
+            sap.m.MessageBox.error("Creation Failed");
+        }
+    });
+    },
+    onUpdate(){
+      var oModel = this.getView().getModel("emp");
+      var sEmpId = this.byId("empId").getValue();
+        var oEntry = {
+        EmployeeId: sEmpId,
+        Name: this.byId("name").getValue(),
+        City: this.byId("city").getValue(),
+        CompanyName: this.byId("company").getValue(),
+        Dept: this.byId("dept").getValue(),
+        StartDate: new Date(this.byId("startdate").getValue()),
+        EndDate: new Date(this.byId("enddate").getValue()),
+        Salary: this.byId("salary").getValue(),
+        Currency: this.byId("currency").getValue()
+    };
+    var sPath = "/EmployeeSet(" + sEmpId + ")";
+    oModel.update(sPath, oEntry, {
+        success: function () {
+            sap.m.MessageToast.show("Employee Updated");
+            this.byId("ListId").getBinding("items").refresh();
+        },
+        error: function () {
+            sap.m.MessageBox.error("Update Failed");
+        }
+    });
+    },
+
+    onDelete(){
+       var oList = this.byId("ListId");
+       var oSelectedItem = oList.getSelectedItem();
+           if (!oSelectedItem) {
+        sap.m.MessageToast.show("Select Employee");
+        return;
+    }
+    var sEmployeeId = oSelectedItem.getBindingContext("emp").getProperty("EmployeeId");
+    var oModel = this.getView().getModel("emp");
+    var sPath = "/EmployeeSet(" + sEmployeeId + ")";
+
+     oModel.remove(sPath, {
+        success: function () {
+            sap.m.MessageToast.show("Employee Deleted");
+            this.byId("ListId").getBinding("items").refresh();
+        }.bind(this),
+        error: function () {
+            sap.m.MessageBox.error("Delete Failed");
+        }
+    });
+    },
+
     onRead() {
        
        var oList = this.byId("ListId");
