@@ -16,7 +16,7 @@
        
         <form:SimpleForm id="employeeForm" title="Employees Details" editable="true">
             <Label id="_IDGenLabel" text="Employee Id"/>
-            <Input id="empId"/>
+            <Input id="empId" type="Number" />
 
             <Label id="_IDGenLabel1" text="Name"/>
             <Input id="name" />

@@ -36,24 +36,24 @@ sap.ui.define([
     },
 
     onCreate(){
-           var oModel = this.getView().getModel("emp");
+    var oModel = this.getView().getModel("emp");
 
     var oEntry = {
-        EmployeeId: this.byId("empId").getValue(),
+        EmployeeId: Number(this.byId("empId").getValue()),
         Name: this.byId("name").getValue(),
         City: this.byId("city").getValue(),
         CompanyName: this.byId("company").getValue(),
         Dept: this.byId("dept").getValue(),
         StartDate: new Date(this.byId("startdate").getValue()),
         EndDate: new Date(this.byId("enddate").getValue()),
-        Salary: this.byId("salary").getValue(),
+        Salary: Number(this.byId("salary").getValue()),
         Currency: this.byId("currency").getValue()
         };
 
         oModel.create("/EmployeeSet", oEntry, {
         success: function () {
             sap.m.MessageToast.show("Employee Created");
-            this.byId("ListId").getBinding("items").refresh();
+            this.byId("ListId").getBinding("items");
         }.bind(this),
         error: function () {
             sap.m.MessageBox.error("Creation Failed");
@@ -103,7 +103,7 @@ sap.ui.define([
             this.byId("ListId").getBinding("items").refresh();
         }.bind(this),
         error: function () {
-            sap.m.MessageBox.error("Delete Failed");
+            sap.m.MessageBox.error("Delete Failed"); 
         }
     });
     },
